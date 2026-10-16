@@ -1,0 +1,7 @@
+# Python 3.10+  ·  설치 후 브라우저 한 번: python -m playwright install chromium
+pillow          # 이미지 합성·누끼 실측
+beautifulsoup4  # 문서(HTML) 빌드
+playwright      # 배너·카드 HTML → PNG 렌더
+openai          # 새 호스트 캐릭터 생성 (gpt-image-2.5-flare) — R3 재사용이면 없어도 됨
+faster-whisper  # 호스트 클립 대사 검수 (ASR 가드)
+# 외부 프로그램: ffmpeg / ffprobe (PATH 또는 .env 의 FFMPEG_PATH·FFPROBE_PATH)

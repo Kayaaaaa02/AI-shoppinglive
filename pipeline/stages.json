@@ -1,0 +1,266 @@
+{
+ "version": "v1.1 (2026-10-16)",
+ "summary": "제품명·프로모션만 넣으면 Product Spec MCP·NAS MCP에서 정보와 원본 소스를 가져와 대본 → 스토리보드 → 배너 → (승인 후) 캐릭터·목소리·호스트 영상 → 편집까지 이어 가는 워크플로우. Shopee 11월 3편(생성 POC 탭)에서 실제로 쓴 스크립트와 프롬프트를 제품에 묶이지 않게 떼어 냈다.",
+ "stages": [
+  {
+   "id": "0",
+   "name": "접수",
+   "who": "사용자",
+   "fee": "무료",
+   "do": "제품명(여러 개 가능)·브랜드·판매 채널·국가·언어·프로모션 문구·납기를 받는다.",
+   "tool": "pipeline/new_project.py — 프로젝트 폴더(5분류)와 brief/intake.json 생성",
+   "out": "<프로젝트>/0_기획/brief/intake.json",
+   "lanes": {
+    "human": "제품명·채널·국가·프로모션 입력",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [],
+    "script": "new_project.py"
+   }
+  },
+  {
+   "id": "1",
+   "name": "제품 정보",
+   "who": "Claude",
+   "fee": "무료",
+   "do": "Product Spec MCP로 상품 기획서를 찾아 USP·용량·제형·사용법·주의 문구·버전을 읽는다. 문서가 없으면 '없음'으로 적고 공식몰 상세페이지를 보조 출처로 쓴다(출처·조회일 기록).",
+   "tool": "product-spec: search_product_specs → get_product_spec → get_spec_versions · get_spec_attachments",
+   "out": "brief/product_brief.json (제품별 facts + 출처·버전)",
+   "lanes": {
+    "human": "",
+    "guide": [
+     "SKILL",
+     "HOOK_VERIFY"
+    ],
+    "mcp": [
+     "PS_SEARCH",
+     "PS_GET",
+     "PS_VER",
+     "PS_ATT",
+     "PS_MATCH"
+    ],
+    "model": [],
+    "script": ""
+   }
+  },
+  {
+   "id": "2",
+   "name": "원본 소스",
+   "who": "Claude + 스크립트",
+   "fee": "무료",
+   "do": "NAS MCP로 품번을 찾고 누끼·발색컷·상세컷·시연 영상을 고른다. 미리보기 링크(1시간)로 고르고, 원본 링크(5분)는 내려받기 직전에 다시 받는다. 콜라보·구버전(lifecycle≠current) 폴더는 요청이 없으면 뺀다.",
+   "tool": "fnco-nas: find_sku → get_sku_assets / search_nas_assets(reviewed_only) → get_asset · pipeline/nas_download.py",
+   "out": "5_에셋/이미지생성_소스/<제품키>/ + assets_manifest.json + product_lock.json(누끼 실측: 비율·색)",
+   "lanes": {
+    "human": "미리보기로 제품·용량·호수 맞는지 확인",
+    "guide": [
+     "SKILL",
+     "HOOK_LOCK"
+    ],
+    "mcp": [
+     "NAS_FIND",
+     "NAS_SEARCH",
+     "NAS_SKU",
+     "NAS_GET"
+    ],
+    "model": [],
+    "script": "nas_download.py"
+   }
+  },
+  {
+   "id": "3",
+   "name": "대본",
+   "who": "Claude",
+   "fee": "무료",
+   "do": "rules/script_grammar.md 순서(오프닝 → 혜택 → 고민 → 제품별 소개·시연·팁·사용법 → FAQ → 혜택 재안내 → 엔딩)로 영어 대본을 쓴다. 줄마다 화면 유형·근거(문서 버전)·RA 표시를 붙이고, 근거 없는 문장은 쓰지 않는다.",
+   "tool": "rules/script_grammar.md (§4 근거·RA 표현 규칙 포함) · 화장품 표현 가드(hook)",
+   "out": "brief/script.json → pipeline/script_to_shotlist.py → 5_에셋/production/shotlist.json",
+   "lanes": {
+    "human": "대본·RA 표시 문장 확인",
+    "guide": [
+     "SKILL",
+     "GRAMMAR",
+     "HOOK_FDA",
+     "HOOK_VERIFY"
+    ],
+    "mcp": [],
+    "model": [],
+    "script": "script_to_shotlist.py"
+   }
+  },
+  {
+   "id": "4",
+   "name": "스토리보드",
+   "who": "스크립트",
+   "fee": "무료",
+   "do": "대본 줄마다 화면 유형·자막·쓰일 누끼/시연 소스를 한 장에 배치해 확인용 HTML을 만든다. 소스가 비어 있는 줄은 빨간 칸으로 표시한다.",
+   "tool": "pipeline/build_storyboard.py",
+   "out": "0_기획/storyboard.html",
+   "lanes": {
+    "human": "스토리보드·견적 확인",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [],
+    "script": "build_storyboard.py"
+   }
+  },
+  {
+   "id": "5",
+   "name": "배너",
+   "who": "스크립트",
+   "fee": "무료",
+   "do": "제품별 혜택 배너(promo)·정보 배너(info)를 공식 누끼로만 조판한다(제품 생성 없음). 문구는 claim 등급(cosmetic/RA)과 함께 기록한다.",
+   "tool": "pipeline/build_banners.py (POC의 promo·info 템플릿 재사용)",
+   "out": "5_에셋/banner/common/*.png + copy_audit.csv",
+   "lanes": {
+    "human": "배너 원본 크기로 확인",
+    "guide": [
+     "SKILL",
+     "HOOK_FDA",
+     "HOOK_LOCK"
+    ],
+    "mcp": [],
+    "model": [
+     "TPL_BANNER"
+    ],
+    "script": "build_banners.py"
+   }
+  },
+  {
+   "id": "6",
+   "name": "캐릭터 시트",
+   "who": "사용자 승인 후",
+   "fee": "유료",
+   "do": "기본은 기존 호스트(R3) 재사용 — 시트·마스터 프레임·목소리를 복사만 한다(무료). 새 호스트가 필요하면 host_spec으로 후보 9장 → 사람이 1장 선택 → 각도·표정·손 시트와 9:16 마스터 프레임.",
+   "tool": "pipeline/new_project.py --host R3 (복사) / pipeline/gen_character.py candidates → sheets → master916 --confirm (gpt-image-2.5-flare)",
+   "out": "5_에셋/character_sheet/<HOST>/",
+   "lanes": {
+    "human": "승인 → 후보 1장 선택",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [
+     "IMG_CAND",
+     "IMG_SHEET",
+     "IMG_OUTPAINT"
+    ],
+    "script": "gen_character.py"
+   }
+  },
+  {
+   "id": "7",
+   "name": "목소리",
+   "who": "사용자 승인 후",
+   "fee": "유료",
+   "do": "기존 voice_id가 살아 있으면 그대로, 아니면 Voice Design 1회. V/O 줄을 T2A로 합성.",
+   "tool": "5_에셋/scripts/minimax_voice.py (AILIVE_ROOT로 프로젝트 지정)",
+   "out": "2_나레이션/voice/ · 2_나레이션/vo/",
+   "lanes": {
+    "human": "승인 · 목소리 청취",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [
+     "VOICE_DESIGN",
+     "T2A_REF",
+     "T2A_VO"
+    ],
+    "script": "minimax_voice.py"
+   }
+  },
+  {
+   "id": "8",
+   "name": "호스트 영상",
+   "who": "사용자 승인 후",
+   "fee": "유료",
+   "do": "prepare(무료)로 클립 수·예상 비용을 먼저 보여 주고, 승인받은 뒤 submit. 재POST 금지·submission.lock 유지.",
+   "tool": "5_에셋/scripts/h3_production.py prepare → submit → resume (MiniMax-H3 2K 9:16)",
+   "out": "3_소스클립/H3/<ID>/native.mp4",
+   "lanes": {
+    "human": "견적 승인 → submit",
+    "guide": [
+     "SKILL",
+     "HOOK_FDA"
+    ],
+    "mcp": [],
+    "model": [
+     "H3_HOST"
+    ],
+    "script": "h3_production.py"
+   }
+  },
+  {
+   "id": "9",
+   "name": "검수",
+   "who": "스크립트 + 사람",
+   "fee": "무료",
+   "do": "ASR 대사 가드(두 모델)로 대본에 없는 말을 잡고, 5프레임 컨택트시트를 사람이 본다. 탈락 클립만 재생성.",
+   "tool": "5_에셋/scripts/qa_h3.py",
+   "out": "4_테스트/h3_qa/",
+   "lanes": {
+    "human": "컨택트시트 육안 · 탈락 결정",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [
+     "ASR"
+    ],
+    "script": "qa_h3.py"
+   }
+  },
+  {
+   "id": "10",
+   "name": "편집",
+   "who": "스크립트",
+   "fee": "무료",
+   "do": "대본 줄 순서대로 화면 유형별 합성 → 자막 → 음량 정규화 → 1.25배속 → 완성본.",
+   "tool": "5_에셋/scripts/build_final_edit.py — v1에서는 아직 Shopee 3편 전용(영상용 카드 내용이 스크립트 안에 있음). 다음 단계에서 script.json의 card 필드로 옮길 예정",
+   "out": "1_최종영상/",
+   "lanes": {
+    "human": "완성본 확인",
+    "guide": [
+     "SKILL"
+    ],
+    "mcp": [],
+    "model": [],
+    "script": "build_final_edit.py (Shopee 전용)"
+   }
+  }
+ ],
+ "gates": [
+  "유료 단계(6·7·8)는 항상 사람 승인 후 실행. prepare/견적 → 승인 → submit 순서",
+  "제품은 생성하지 않는다 — NAS 공식 누끼·발색컷·시연 영상만 합성 (PRODUCT LOCK)",
+  "문구는 화장품 범위(세정·사용감·외관). 근거 없는 수치·효능·임상·순위 표현 금지, 걸릴 소지가 있으면 RA 표시",
+  "Product Spec에 문서가 없으면 '없음'으로 기록 — 기억·추측으로 채우지 않는다",
+  "가격·사은품·기간은 실무진 회신값만 쓴다. 비어 있으면 화면에서 자리만 비워 둔다"
+ ],
+ "status": [
+  [
+   "0~5 (접수 → 배너)",
+   "v1 동작 — 무료 단계 전부 스크립트/규칙으로 일반화"
+  ],
+  [
+   "6~9 (캐릭터·목소리·호스트 영상·검수)",
+   "기존 스크립트를 AILIVE_ROOT로 다른 프로젝트에 쓸 수 있게 함 (유료 실행은 승인 후)"
+  ],
+  [
+   "10 (편집)",
+   "Shopee 3편 전용 — 일반화는 다음 버전"
+  ],
+  [
+   "2026-10-16 시험",
+   "새 제품(커버리셔스 파워핏 롱웨어 쿠션)으로 0→2→3→4→5단계와 8단계 prepare(무료)까지 실행 — TEST_파이프라인검증_20261016. NAS 원본 12.6MB 내려받기·누끼 실측·스토리보드(빈 소스 빨간 칸)·배너 렌더 확인. 고친 것: 상대경로 오류, 배너 문구 두 줄 겹침(48자 제한 추가). 받은 누끼가 국문 문구가 인쇄된 기획세트 단상자라 실제 방송엔 부적합 → 고르는 규칙에 반영"
+  ],
+  [
+   "Product Spec MCP",
+   "저장소 .mcp.json 에 product-spec·fnco-nas 등록 — 이 폴더에서 Claude Code를 열면 연결(사내 계정 로그인)"
+  ]
+ ]
+}

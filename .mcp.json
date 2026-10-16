@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "product-spec": {
+      "type": "http",
+      "url": "https://product-spec-mcp.hub.fnco.co.kr/mcp"
+    },
+    "fnco-nas": {
+      "type": "http",
+      "url": "https://docs.hub-dev.fnco.co.kr/mcp"
+    }
+  }
+}

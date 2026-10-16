@@ -1,0 +1,24 @@
+{
+ "candidate": "A (A-1)",
+ "voice_id": "ttv-voice-2026101416580726-EJk2smb4",
+ "prompt": "Bright, youthful female voice in her early twenties, like a friendly K-pop idol hosting a live beauty show in English. Clear, neutral international English with crisp consonants, easy for non-native listeners. Warm, upbeat and confident, medium-high pitch, smooth and clean, not breathy, not childish, not exaggerated.",
+ "preview_text": "Hi everyone, welcome to BANILA CO Live! Today's deals are really good, so don't miss this chance. Scoop a little balm, massage it in, and watch it melt into oil.",
+ "designed_at": "2026-10-14T17:58:17",
+ "retention_note": "FAQ: voice_id kept permanently once used in T2A within 7 days (Voice Design applicability unconfirmed)",
+ "reference_wav": "2_나레이션/voice/host_reference.wav",
+ "reference_text": "I always love these little moments with you. <#0.3#> Let's take it slow, <#0.2#> look closely, and have some fun together, okay? <#0.3#> I think you're going to like this one.",
+ "reference_seconds": 10.622125,
+ "reference_made_at": "2026-10-14T17:58:23",
+ "reference_info": {
+  "audio_length": 10622,
+  "audio_sample_rate": 32000,
+  "audio_size": 680980,
+  "bitrate": 128000,
+  "word_count": 169,
+  "invisible_character_ratio": 0,
+  "usage_characters": 175,
+  "audio_format": "wav",
+  "audio_channel": 1,
+  "usage_voice_count": 1
+ }
+}

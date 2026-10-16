@@ -1,0 +1,87 @@
+{
+  "checked_at": "2026-10-07",
+  "request_type": "conceptual_docs_and_hardware_reference",
+  "scope": "MiniMax H3 native video plus audio; official reference recipes and explicitly untested design proposals",
+  "generation_submitted": false,
+  "benchmarks_run": false,
+  "installation_performed": false,
+  "sources": {
+    "diffusers_h3": "https://huggingface.co/docs/diffusers/main/en/api/pipelines/minimax_h3",
+    "diffusers_offload": "https://huggingface.co/docs/diffusers/main/en/optimization/memory",
+    "minimax_model_card": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "minimax_deploy": "https://platform.minimax.io/docs/guides/local-deploy-h3",
+    "comfy_guide": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+    "comfy_model_card": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+    "comfy_metadata": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3?blobs=true",
+    "hosted_api": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create"
+  },
+  "version_context": {
+    "diffusers_channel": "main; documentation requires source installation",
+    "minimax_deploy_baseline_review": "2026-08-26",
+    "comfy_model_revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+    "comfy_model_last_modified": "2026-09-29T11:11:09.000Z"
+  },
+  "current_observation": {
+    "evidence_owner": "parent agent; not independently benchmarked by this researcher",
+    "os": "Windows",
+    "gpu": "RTX 4080",
+    "vram_GB": 16,
+    "installed_ram_GiB_reported": 63.7,
+    "successful_generated_canvas": [320, 576],
+    "requested_clip_seconds": 15,
+    "native_video_audio_success_reported": true,
+    "native_768p_success_established": false
+  },
+  "memory_roles_ko": {
+    "vram": "GPU에서 계산 중인 가중치 조각과 활성값·영상/음성 latent를 보관합니다.",
+    "ram": "CPU offload 시 GPU에 올리지 않은 가중치를 보관합니다. 여유 RAM은 로딩·paging 부담을 줄이지만 GPU VRAM과 같은 처리 속도를 주지는 않습니다.",
+    "inference": "현재 설정이 RAM을 충분히 확보했다면 VRAM 증가가 더 큰 canvas와 오프로딩 감소에 도움이 됩니다. RAM 부족으로 paging하는 상태라면 RAM도 먼저 해결해야 합니다.",
+    "source_ids": ["diffusers_h3", "diffusers_offload"]
+  },
+  "official_diffusers_recipes": [
+    {"gpu": "12-16 GB", "precision": "INT8 DiT and conditioner", "offload": "block/leaf CPU offload plus leaf-level video VAE offload", "canvas_example": [960, 544], "host_ram_note": "around 75 GB for this recipe; not a universal H3 minimum", "locally_tested": false},
+    {"gpu": "24-32 GB", "precision": "INT8 DiT and conditioner", "offload": "streamed CPU block/leaf offload", "host_ram_note": "same INT8 recipe; reserve loading and operating-system headroom", "locally_tested": false},
+    {"gpu": "1 x 80 GB", "precision": "BF16", "offload": "ComponentsManager CPU auto offload; documented 12GB device reserve", "host_ram_note": "no exact host minimum published", "locally_tested": false},
+    {"gpu": "2 x 48 GB", "precision": "INT8", "offload": "conditioner and remaining pipeline split across devices; resident after loading", "host_ram_note": "no exact host minimum published", "locally_tested": false},
+    {"gpu": "2 x 80 GB", "precision": "BF16", "offload": "conditioner and remaining pipeline split across devices; resident after loading", "host_ram_note": "no exact host minimum published", "locally_tested": false}
+  ],
+  "recipe_source_id": "diffusers_h3",
+  "full_precision_weight_size_documented_GB": {"transformer": 61.7, "conditioner": 62.1, "source_id": "diffusers_h3"},
+  "current_comfy_weight_files": {
+    "source_id": "comfy_metadata",
+    "files": [
+      {"path": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors", "bytes": 20970379616},
+      {"path": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors", "bytes": 15687142551},
+      {"path": "vae/minimax_h3_video_vae_int8_convrot.safetensors", "bytes": 2811065184},
+      {"path": "vae/minimax_h3_audio_vae_fp32.safetensors", "bytes": 605254808}
+    ],
+    "total_bytes": 40073842159,
+    "total_GiB": 37.321673854254186,
+    "caution_ko": "파일 합계입니다. 실제 peak RAM/VRAM 또는 필수 RAM 용량이 아닙니다. 원본 BF16 및 Diffusers의 양쪽 INT8 recipe와 다른 파일 세트입니다."
+  },
+  "resolution_ko": {
+    "native_base": "768px short edge, 약1MP; 16:9의 공식 canvas는1344x768이고 32배수 정렬을 사용합니다.",
+    "hosted_2K": "공식2K workflow는 공개 H3-Base 외에 hosted H3-Context-IR와 아직 공개되지 않은 H3-Regenerate-2K를 포함합니다. GPU 증설만으로 그 전체 경로가 생기지는 않습니다.",
+    "local_upscale": "Base native canvas 생성 후 별도 upscale은 가능하지만 공식 Regenerate-2K 결과와 같은 경로라고 표시하지 않습니다.",
+    "source_ids": ["minimax_model_card", "comfy_guide", "hosted_api"]
+  },
+  "quality_and_duration_ko": [
+    {"fact": "Offload는 가중치의 위치를 이동하는 방식입니다. 양자화처럼 정밀도를 줄이는 설정과 구분해야 합니다.", "kind": "docs_based_interpretation", "source_id": "diffusers_offload"},
+    {"fact": "INT8/NVFP4 양자화 파일은 원본 BF16 경로와 메모리·품질·재현성이 다를 수 있습니다.", "kind": "official_documentation", "source_id": "minimax_deploy"},
+    {"fact": "Comfy의 base20-step schedule과 optional8/4-step Turbo는 다릅니다. 공식 가이드는 음성·음색이 후반 단계에서 수렴하며8-step에서 약하다고 설명합니다.", "kind": "official_documentation", "source_id": "comfy_guide"},
+    {"fact": "INT8 가중치와 Sage INT8 attention은 별개입니다. int8_convrot checkpoint에는 기본 attention을 유지하라는 공식 안내가 있습니다.", "kind": "official_documentation", "source_id": "comfy_guide"},
+    {"fact": "길이가 늘면 attention 부담이 커집니다. 고정 가중치 크기는 그대로지만 temporal latent와 활성값 부담은 늘며,15초 요구량을5초의 정확히3배로 계산하면 안 됩니다.", "kind": "docs_based_inference", "source_ids": ["minimax_model_card", "comfy_guide"]},
+    {"fact": "현재320x576 대비1344x768은 프레임당 픽셀 수가5.6배입니다. 이 숫자는 peak 메모리나 시간을5.6배로 보장하지 않습니다.", "kind": "arithmetic_inference"}
+  ],
+  "design_proposals_not_tested_minima": {
+    "balanced_native_canvas_benchmark_candidate": {"vram_GB": 32, "ram_GB": 128, "NVMe_TB": 2, "CPU_cores": "8-16", "tested": false},
+    "preview_headroom": "16GB VRAM /96-128GB RAM proposed headroom; current16GB/64GB preview success is separate evidence",
+    "native_canvas_target": "24-32GB VRAM, or32-48GB to reduce offload /128GB RAM /NVMe2TB",
+    "reduced_offload": "2x48GB INT8 /128-256GB RAM proposed loading headroom",
+    "full_precision": "2x80GB BF16 /256GB RAM proposed loading headroom",
+    "caution_ko": "위 RAM·SSD·CPU 값은 설계 제안입니다. H3 공식 최소요건,768p15초 성공 보장, 생성 시간 실측이 아닙니다. single48GB를 원본61.7GB BF16 DiT 완전 상주로 설명하면 안 됩니다."
+  },
+  "cross_framework_caution_ko": "Diffusers 분리 배치와 SGLang/vLLM-Omni server recipe는 다릅니다. 예를 들어 MiniMax 배포 문서의 vLLM 두GPU offload는200GiB available RAM을 명시하므로 다른 표의128GB 제안을 그대로 적용하지 않습니다.",
+  "cross_framework_source_id": "minimax_deploy",
+  "retrieval_sufficiency": "Sufficient for the informational question; no further search or inference submitted."
+}

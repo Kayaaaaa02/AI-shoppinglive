@@ -1,0 +1,46 @@
+{
+  "reviewed_on": "2026-10-06",
+  "role": "dependency-expert",
+  "scope": "Official-source comparison only; no install, generation, credential changes or paid requests",
+  "recommendation": "Qwen3-TTS-12Hz-1.7B-CustomVoice + MuseTalk 1.5, separate native Windows environments, sequential GPU use",
+  "machine_context_source": "Leader's observed Windows GPU/RAM/disk and WSL startup diagnostics; not independently inspected by this reviewer",
+  "machine": {"os": "Windows 11", "gpu": "RTX 4080", "vram_gb": 16, "vram_available_gb_approx": 13.5, "ram_gb": 64, "d_disk_free_tb_approx": 1.38, "wsl_error": "Wsl/Service/CreateInstance/CreateVm/HCS/0x80070569"},
+  "runtime_verified": false,
+  "h3": {
+    "decision": "Do not download or execute here",
+    "architecture": {"omni_transformer_billion_parameters": 33, "encoder": "Qwen3-VL-32B", "url": "https://github.com/MiniMax-AI/MiniMax-H3#model-architecture"},
+    "consumer_reference": {"gpu": "RTX 4090 24 GB", "mode": "layerwise CPU offload + kitchen_int8", "gpu_peak_gb_approx": 18, "minimum_for_all_implementations": false, "url": "https://platform.minimax.io/docs/guides/local-deploy-h3"},
+    "public_scope": {"base_resolution": "768p", "context_ir_public": false, "regenerate_2k_public": false, "url": "https://github.com/MiniMax-AI/MiniMax-H3"},
+    "license": {"name": "MiniMax H3 Community License", "korea_excluded_under_default_license": true, "sections": ["I.5", "II", "IV.1", "V.4"], "commercial_revenue_separate_authorization_usd": 20000000, "apply_default_weight_license_to_prior_hosted_contract": false, "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE"},
+    "direct_api": {"endpoint": "https://api.minimax.io/v2/video_generation", "authentication": "Bearer API key", "plan": "Pay-as-you-go", "requested": false, "url": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create"}
+  },
+  "qwen": {
+    "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "model_repository_gb": 4.52,
+    "weights_main_file_gb": 3.83,
+    "license": "Apache-2.0",
+    "speaker_candidate": "Sohee",
+    "brand_text": "바닐라코",
+    "code_switch_pronunciation_verified": false,
+    "proposed_environment": {"python": "3.11", "python_project_minimum": "3.9", "readme_python_example": "3.12", "qwen_tts": "0.1.1", "torch": "2.6.0", "torchaudio": "2.6.0", "cuda_wheel": "cu124", "transformers": "4.57.3", "transformers_torch_minimum": "2.2", "accelerate": "1.12.0", "dtype": "bfloat16", "attn_implementation": "sdpa", "flash_attention_required": false},
+    "fallback": {"model": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice", "repository_gb": 2.5, "instruct_ignored_by_wrapper": true},
+    "sources": ["https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/pyproject.toml", "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/qwen_tts/core/models/modeling_qwen3_tts.py", "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/qwen_tts/inference/qwen3_tts_model.py", "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice/tree/main", "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice/tree/main", "https://github.com/QwenLM/Qwen3-TTS", "https://raw.githubusercontent.com/huggingface/transformers/v4.57.3/setup.py", "https://pytorch.org/get-started/previous-versions/#v260"]
+  },
+  "musetalk": {
+    "version": "1.5",
+    "native_windows_official_documented": true,
+    "official_small_gpu_test": {"gpu": "RTX 3050 Ti Laptop", "vram_gb": 4, "mode": "fp16", "video_seconds": 8, "elapsed_minutes_approx": 5, "benchmark_for_this_machine": false, "url": "https://github.com/TMElyralab/MuseTalk#gradio-demo"},
+    "baseline": {"python": "3.10", "torch": "2.0.1", "torchvision": "0.15.2", "torchaudio": "2.0.2", "cuda_wheel": "cu118", "mmcv": "2.0.1", "mmdet": "3.1.0", "mmpose": "1.1.0", "transformers": "4.39.2", "accelerate": "0.28.0", "numpy": "1.23.5"},
+    "mmcv_official_wheel_exists": {"cp310_windows_amd64": true, "cp311_windows_amd64": true, "torch_index": "2.0", "cuda_index": "cu118", "url": "https://download.openmmlab.com/mmcv/dist/cu118/torch2.0/index.html"},
+    "inference": {"input_video_fps_recommended": 25, "face_region_px": [256, 256], "fp16_flag": "--use_float16", "batch_flag": "--batch_size", "new_full_scene_from_scratch": false},
+    "weights": [{"name": "musetalkV15/unet.pth", "gb": 3.4, "url": "https://huggingface.co/TMElyralab/MuseTalk/tree/main/musetalkV15"}, {"name": "sd-vae diffusion_pytorch_model.bin", "mb": 335, "url": "https://huggingface.co/stabilityai/sd-vae-ft-mse/tree/main"}, {"name": "whisper tiny pytorch_model.bin", "mb": 151, "url": "https://huggingface.co/openai/whisper-tiny/tree/main"}, {"name": "dw-ll_ucoco_384.pth", "mb": 407, "url": "https://huggingface.co/yzd-v/DWPose/tree/main"}],
+    "license": {"code": "MIT", "core_weights_commercial_use_explicit": true, "example_testdata": "Non-commercial research only; do not use these examples for brand output", "all_auxiliary_checkpoints_rights_guaranteed": false, "url": "https://github.com/TMElyralab/MuseTalk#disclaimerlicense", "model_license_url": "https://huggingface.co/TMElyralab/MuseTalk/blob/main/LICENSE.txt"},
+    "download_script_mirror_override": "Official script sets HF_ENDPOINT=https://hf-mirror.com; prefer explicitly chosen official Hugging Face repositories for this run",
+    "sources": ["https://github.com/TMElyralab/MuseTalk", "https://raw.githubusercontent.com/TMElyralab/MuseTalk/main/requirements.txt", "https://raw.githubusercontent.com/TMElyralab/MuseTalk/main/scripts/inference.py", "https://raw.githubusercontent.com/TMElyralab/MuseTalk/main/download_weights.sh", "https://raw.githubusercontent.com/TMElyralab/MuseTalk/main/LICENSE"]
+  },
+  "latentsync_alternative": {"minimum_vram_gb_v15": 8, "minimum_vram_gb_v16": 18, "code_license": "Apache-2.0", "checkpoint_card_license": "OpenRAIL++", "selected": false, "sources": ["https://github.com/bytedance/LatentSync", "https://huggingface.co/ByteDance/LatentSync/blob/main/README.md"]},
+  "maintenance_observation": {"retrieved_from": "GitHub REST latest default-branch commit API", "reviewed_on": "2026-10-06", "repositories": [{"repo": "TMElyralab/MuseTalk", "sha": "0a89dec45a0192b824e3cf4daf96c239440c5ed8", "committer_date": "2025-09-26T05:44:17Z", "older_than_12_months": true, "url": "https://github.com/TMElyralab/MuseTalk/commit/0a89dec45a0192b824e3cf4daf96c239440c5ed8"}, {"repo": "QwenLM/Qwen3-TTS", "sha": "022e286b98fbec7e1e916cb940cdf532cd9f488e", "committer_date": "2026-03-17T06:38:41Z", "older_than_12_months": false, "url": "https://github.com/QwenLM/Qwen3-TTS/commit/022e286b98fbec7e1e916cb940cdf532cd9f488e"}, {"repo": "bytedance/LatentSync", "sha": "a229c3948406bc2cf6eaf4873e662e70c6a04746", "committer_date": "2025-06-20T07:36:51Z", "older_than_12_months": true, "url": "https://github.com/bytedance/LatentSync/commit/a229c3948406bc2cf6eaf4873e662e70c6a04746"}, {"repo": "MiniMax-AI/MiniMax-H3", "sha": "d21241f0a4b3acbb34c97dae47fa417b7065e438", "committer_date": "2026-08-15T08:31:16Z", "older_than_12_months": false, "url": "https://github.com/MiniMax-AI/MiniMax-H3/commit/d21241f0a4b3acbb34c97dae47fa417b7065e438"}]},
+  "local_cost_reporting": {"external_generation_api_calls": 0, "higgsfield_credits_for_local_route": 0, "electricity_krw": null, "total_operating_cost_krw": null, "note": "No local inference performed by reviewer; measure actual generation duration, GPU power/energy and local electricity tariff before estimating running costs"},
+  "validation_remaining_for_leader": ["Install and import in separate native Windows environments", "Verify CUDA device instead of CPU fallback", "Generate short brand audio and assess actual pronunciation", "Measure durations and peak VRAM", "Lip-sync actual owned input video", "Decode full output and inspect face boundaries", "Keep source-motion provenance explicit; no new full-scene generation claim"],
+  "vulnerability_audit_performed": false
+}

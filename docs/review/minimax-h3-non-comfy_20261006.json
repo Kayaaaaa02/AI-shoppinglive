@@ -1,0 +1,119 @@
+{
+  "checked_at": "2026-10-06",
+  "request_type": "Official documentation and implementation entrypoint lookup for MiniMax H3 native audio-video generation without ComfyUI",
+  "direct_answer_ko": "ComfyUI 없이도 가능합니다. Hugging Face Diffusers의 직접 Python 실행, MiniMax 공식 hosted API, SGLang 또는 vLLM-Omni 자체 호스팅 경로가 있습니다.",
+  "new_routes_locally_tested": false,
+  "installation_performed": false,
+  "generation_submitted": false,
+  "paid_api_calls": 0,
+  "license_research_performed": false,
+  "machine_context_from_leader": {
+    "os": "Windows 11",
+    "gpu": "RTX 4080 16 GB",
+    "system_ram_gib": 63.7,
+    "qualification": "Total RAM is not currently available RAM. This researcher did not measure local resources or execute these alternative routes."
+  },
+  "routes": [
+    {
+      "id": "diffusers_python",
+      "label": "Direct Python: Hugging Face Diffusers",
+      "local": true,
+      "requires_comfyui": false,
+      "native_video_and_audio": true,
+      "documentation_channel": "Diffusers main; the documentation states source installation is needed. Stable H3 availability was not established by this lookup.",
+      "loading_entrypoint": "from diffusers import ModularPipeline; ModularPipeline.from_pretrained('MiniMaxAI/MiniMax-H3', workflow='fl2va')",
+      "component_loading": "pipe.load_components(dtype=torch.bfloat16), after selecting a workflow and configuring a suitable memory strategy",
+      "workflows": {
+        "t2va": "Text to video and audio, transformer/ partition",
+        "fl2va": "First and/or last image to video and audio, transformer/ partition",
+        "ref2va": "Ordered image/video/audio references to video and audio, transformer_ref/ partition"
+      },
+      "fl2va_inputs": ["prompt", "image and/or last_image", "num_frames", "generator", "output"],
+      "output_selection": ["videos", "audio", "sampling_rate"],
+      "mux_entrypoint": "diffusers.utils.export_utils.encode_video(results['videos'][0], fps=24, output_path=..., audio=results['audio'][0], audio_sample_rate=results['sampling_rate'])",
+      "audio_evidence": "The official documentation states that one transformer denoises packed video and audio latents together; the returned audio is native output, not a later TTS pass.",
+      "model_loading_caution": "H3 is a ModularPipeline integration, not the conventional DiffusionPipeline interface. Loading without a selected workflow can fetch both large transformer partitions.",
+      "documented_low_memory_recipe": {
+        "quantization": "TorchAo Int8WeightOnlyConfig(version=2) on transformer and Qwen3-VL conditioner",
+        "offload": "Transformer block-level group offload, text encoder leaf-level group offload; add leaf-level video VAE offload without streams on 12–16 GB GPUs",
+        "example_canvas": "960x544, dimensions divisible by 32",
+        "host_ram_estimate_for_that_recipe": "Around 75 GB for the documented int8 CPU-resident weights",
+        "interpretation": "This is one recipe's memory estimate, not a universal H3 RAM minimum or a claim that all 16 GB GPU configurations are impossible. Current Windows 4080 16 GB / 63.7 GiB RAM success remains untested; smaller quantization, disk backing, or staged component unload need separate validation."
+      },
+      "generation_constraints_in_this_documentation": "24 FPS; resulting duration 5–15 seconds; num_frames snaps upward to the 17n+5 lattice. These are this Diffusers integration's documented constraints, not all H3 interfaces' universal limits.",
+      "tested": false,
+      "evidence_kind": "Official Hugging Face documentation",
+      "source_urls": ["https://huggingface.co/docs/diffusers/main/en/api/pipelines/minimax_h3"]
+    },
+    {
+      "id": "minimax_hosted_api",
+      "label": "MiniMax official hosted H3 API",
+      "local": false,
+      "requires_comfyui": false,
+      "requires_higgsfield": false,
+      "native_video_and_audio": true,
+      "create": "POST https://api.minimax.io/v2/video_generation",
+      "model": "MiniMax-H3",
+      "required_fields": ["model", "content", "resolution", "duration"],
+      "supported_resolution": ["768P", "2K"],
+      "duration_seconds": "4–15, integer",
+      "image_content_item": {"type": "image_url", "image_url": {"url": "<owned image URL or supported image Data URI>"}, "role": "first_frame"},
+      "prompt_content_item": {"type": "text", "text": "<scene, motion, spoken dialogue, and soundscape prompt>"},
+      "auth_and_billing": "Pay-as-you-go API; Authorization: Bearer <API key>. Account entitlement/balance is needed; this research made no charged request.",
+      "query": "GET https://api.minimax.io/v2/query/video_generation/{task_id}",
+      "download": "When task.status=succeeded, download task.content.url; this v2 flow does not require the legacy file_id retrieval flow.",
+      "hardware_implication": "Inference runs on the provider; the local RTX 4080/RAM capacity does not determine hosted model loading feasibility.",
+      "tested": false,
+      "evidence_kind": "Official MiniMax API documentation and official H3 research description",
+      "source_urls": [
+        "https://platform.minimax.io/docs/api-reference/video-generation-v2-create",
+        "https://platform.minimax.io/docs/api-reference/video-generation-v2-query",
+        "https://www.minimax.io/blog/minimax-h3"
+      ]
+    },
+    {
+      "id": "sglang_self_hosted",
+      "label": "SGLang H3 self-hosted server",
+      "local_or_self_hosted": true,
+      "requires_comfyui": false,
+      "native_video_and_audio": true,
+      "server_entrypoint": "sglang serve --model-path <H3 repository root> --model-variant fl2va [hardware-specific flags]",
+      "endpoint": "POST /v1/videos; GET /v1/videos/{id}; GET /v1/videos/{id}/content",
+      "fl2va_native_audio_support": "The official capability matrix supports first/last-frame FL2VA with keyframe conditions; the Quickstart uses FL2VA t2va and expects an MP4 containing H.264 24 FPS video and AAC stereo 32 kHz audio.",
+      "published_reference": "MiniMax deployment guide reviewed August 26, 2026; SGLang commit 2511743bd784e69e5a81ca3d926a000711dae4ab, Linux/Python3.12, 8xB200 reference topology. This is a pinned reference, not a universal hardware minimum.",
+      "windows_4080_status": "No native Windows 4080 16 GB successful configuration established by this lookup.",
+      "tested": false,
+      "evidence_kind": "Official MiniMax self-hosting documentation",
+      "source_urls": ["https://platform.minimax.io/docs/guides/local-deploy-h3"]
+    },
+    {
+      "id": "vllm_omni_self_hosted",
+      "label": "vLLM-Omni H3 self-hosted server",
+      "local_or_self_hosted": true,
+      "requires_comfyui": false,
+      "native_video_and_audio": true,
+      "endpoint": "Synchronous /v1/videos/sync returns MP4; asynchronous /v1/videos job flow also available",
+      "server_entrypoint": "vllm serve MiniMaxAI/MiniMax-H3 --omni --task-type fl2va [hardware-specific flags]",
+      "native_audio_evidence": "The upstream vLLM-Omni H3 recipe explicitly lists T2VA, FL2VA, and Ref2VA and states that generated MP4 contains H.264 video and synchronized stereo audio.",
+      "support_status": "Official MiniMax guide describes a community-maintained experimental H3 recipe, reviewed on vLLM0.26.0. It is not the guide's pinned SGLang baseline.",
+      "recipe_specific_memory_note": "The documented two-GPU consumer offload recipe requires 200 GiB available RAM, 384 GiB recommended. Do not apply this number to all H3 runtimes or all vLLM configurations.",
+      "windows_4080_status": "No successful current Windows4080/63.7GiB configuration established by this lookup.",
+      "tested": false,
+      "evidence_kind": "Official MiniMax guide plus the current vLLM-Omni upstream H3 recipe; not independently executed",
+      "source_urls": ["https://platform.minimax.io/docs/guides/local-deploy-h3", "https://github.com/vllm-project/vllm-omni/blob/main/recipes/MiniMaxAI/MiniMax-H3.md"]
+    }
+  ],
+  "comfy_framework_vs_gui": {
+    "finding": "ComfyUI can run as a local HTTP execution server. A browser node editor is not required to submit generation jobs from a Python/CLI client.",
+    "known_routes": ["POST /prompt", "GET /history/{prompt_id}", "GET /queue"],
+    "current_run_description_from_leader": "Headless local H3 generation via ComfyUI engine and HTTP/CLI, rather than manual browser editing",
+    "runtime_independently_inspected": false,
+    "source_urls": [
+      "https://docs.comfy.org/development/comfyui-server/comms_routes",
+      "https://github.com/Comfy-Org/ComfyUI/blob/d49e888586dd8ae012c0667b33466b815fee07f7/main.py"
+    ]
+  },
+  "html_method_note_ko": "MiniMax H3는 영상과 음성을 함께 생성합니다. 이번 MiniMax Direct 항목은 로컬 H3 가중치를 ComfyUI 엔진의 HTTP/CLI로 실행한 경로이며, 브라우저에서 노드를 직접 조작할 필요는 없습니다. ComfyUI 없이 실행하는 공식 Diffusers Python 경로와 MiniMax 공식 hosted API도 있습니다. 이 두 대안은 이번 PC에서 실행하거나 생성한 결과가 아니므로, 실제 비교 영상과 미실행 방법 설명을 구분합니다. 약75GB RAM은 특정 Diffusers int8/offload 예제의 예상값이며 H3의 보편적 최소 요구량이 아닙니다.",
+  "reporting_rule": "The parent must confirm the actual completed local route before inserting the HTML method note. This researcher did not verify any output video or runtime result.",
+  "retrieval_sufficiency": "Grounded enough to answer whether ComfyUI is mandatory and identify documented native AV entrypoints. Windows performance, pronunciation, and lip sync quality still require local execution and video inspection."
+}

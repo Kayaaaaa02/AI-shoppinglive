@@ -1,0 +1,25 @@
+{
+ "_comment": "3단계 출력 형식 (rules/script_grammar.md). 줄 예시는 Shopee POC V1 대본에서 가져옴. type은 화면 유형 코드, 'V/O:'로 시작하면 화면 밖 목소리.",
+ "videos": [
+  {
+   "id": "V1",
+   "title": "Prime Primer — Prep & Stay",
+   "headline": "PREP & STAY",
+   "products": ["primer_classic"],
+   "lines": [
+    {"id": "O-P", "type": "H+G", "screen": "호스트 + 진열 누끼 + 혜택 배너", "cutouts": ["primer_classic"],
+     "text": "Today it's all about Prime Primer — and the whole line is fifty percent off, with a free gift!",
+     "gesture": "One open palm presents to her side.", "basis": "intake.promo", "ra": false},
+    {"id": "P4-1", "type": "H+G", "screen": "호스트 + 클래식 누끼 확대", "cutouts": ["primer_classic"],
+     "text": "Next, Prime Primer Classic. This is a cream primer, and it is the step right before your foundation.",
+     "gesture": "", "basis": "Product Spec v6", "ra": false},
+    {"id": "P4-2", "type": "S", "screen": "하단 시연 창", "source": {"asset": "primer_classic__video_01", "in": 0, "out": 18.3},
+     "text": "Just one pea-sized drop. Press it in. See? The skin texture looks smoother, and pores look less visible.",
+     "gesture": "She points down-right toward the bottom of the frame.", "basis": "Product Spec v6", "ra": true,
+     "note": "외관 표현만. 모공 면적 수치 미사용"},
+    {"id": "P4-4", "type": "G", "screen": "사용법 카드", "card": {"title": "How to use", "steps": ["Pea-size", "Press", "Wait", "Base"]},
+     "cutouts": ["primer_classic"], "text": "V/O: Pea-size, press, wait a moment, then your base.", "basis": "Product Spec v6", "ra": false}
+   ]
+  }
+ ]
+}

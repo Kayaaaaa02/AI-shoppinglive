@@ -1,0 +1,106 @@
+{
+  "verified_at": "2026-10-06",
+  "scope": "Official-source research only. No credentials, installation, model weights, or billable API requests.",
+  "latest_user_intent": "MiniMaxAI/MiniMax-H3 locally, compared with existing Seedance and Higgsfield MiniMax videos. A separate TTS demonstration does not fulfill this intent.",
+  "generation_attempted": false,
+  "observed_generation_latency_seconds": null,
+  "api": {
+    "provider": "MiniMax Open Platform, direct international API",
+    "model": "MiniMax-H3",
+    "native_audio": true,
+    "native_audio_evidence": "The H3 Omni Transformer jointly predicts video and audio latents. The model card specifies stereo audio and supported dialogue languages, including English and Korean.",
+    "authentication": "Authorization: Bearer <standard pay-as-you-go API key>; Content-Type: application/json",
+    "account_requirement": "Registered MiniMax account with applicable API entitlement/balance. Token Plan Subscription Keys and pay-as-you-go API Keys are distinct.",
+    "create": {
+      "method": "POST",
+      "url": "https://api.minimax.io/v2/video_generation",
+      "required_fields": ["model", "content", "resolution", "duration"],
+      "supported_resolutions": ["768P", "2K"],
+      "duration_seconds": {"minimum": 4, "maximum": 15, "type": "integer"},
+      "request_template_not_submitted": {
+        "model": "MiniMax-H3",
+        "content": [
+          {"type": "text", "text": "<owned video scene and spoken dialogue prompt; non-empty, at most 7000 characters>"},
+          {"type": "image_url", "image_url": {"url": "data:image/png;base64,<BASE64_OF_OWNED_HOME_ANCHOR>"}, "role": "first_frame"}
+        ],
+        "resolution": "2K",
+        "duration": 15,
+        "ratio": "adaptive"
+      },
+      "successful_response": {"task_id": "<TASK_ID>"},
+      "source_url": "https://platform.minimax.io/docs/api-reference/video/generation/api/v2-video-generation.json"
+    },
+    "media": {
+      "content_item_types": ["text", "image_url", "video_url", "audio_url"],
+      "image_url_shape": {"url": "<public URL, mm_file://{file_id}, or data:image/<lowercase-format>;base64,<Base64>>"},
+      "roles": ["first_frame", "last_frame", "reference_image", "reference_video", "reference_audio"],
+      "character_reference": "Use an image_url object with role=reference_image. There is no separate character_id field in the create schema.",
+      "combination_constraint": "Do not mix first_frame/last_frame images with reference_image/reference_video/reference_audio roles.",
+      "ratio_constraint": "First/last-frame generation derives its ratio from the image and ignores a supplied concrete ratio. Reference generation can specify 9:16; text-only generation requires a concrete ratio.",
+      "image_limits": {"file_size_mb_max": 30, "dimension_px_min": 256, "dimension_px_max": 5760, "aspect_ratio_min": 0.4, "aspect_ratio_max": 2.5, "reference_image_count_max": 9},
+      "request_body_size_mb_max": 64,
+      "audio_video_reference_duration": "Each clip 2–15 seconds; up to 3 audio or video clips of each type, total duration per media type at most 15 seconds.",
+      "audio_switch_or_voice_id": "No generate_audio, audio_on, voice_id, or separate TTS field is declared by this create schema. Direct native audio is controlled through the multimodal scene/dialogue prompt, and optional reference audio.",
+      "source_url": "https://platform.minimax.io/docs/api-reference/video/generation/api/v2-video-generation.json"
+    },
+    "query_download": {
+      "method": "GET",
+      "url_template": "https://api.minimax.io/v2/query/video_generation/{task_id}",
+      "states": ["queued", "running", "succeeded", "failed", "cancelled"],
+      "result_url_json_path": "task.content.url",
+      "download": "Download MP4 from task.content.url after status=succeeded. No legacy file_id retrieval step is required for this v2 flow.",
+      "retention": "The query endpoint covers tasks from the last 7 days. Download URLs are time-limited; query again after expiry to obtain a new URL. Exact URL lifetime is not documented here.",
+      "source_urls": ["https://platform.minimax.io/docs/api-reference/video-generation-v2-query", "https://platform.minimax.io/docs/api-reference/video/generation/api/v2-video-generation.json"]
+    },
+    "pricing": {
+      "currency": "USD",
+      "list_price_excludes": ["taxes", "payment/foreign-exchange fees", "account-specific discounts"],
+      "output_per_second": {"768P": 0.08, "2K": 0.13},
+      "output_15_seconds": {"768P": 1.2, "2K": 1.95},
+      "input_audio": "Free",
+      "input_images": "First 5 free; USD 0.04 per additional image",
+      "input_video_per_second_by_output_resolution": {"768P": 0.08, "2K": 0.13},
+      "comparison_assumption": "One home anchor image, no reference video, one successful 15-second generation. Native audio has no separately listed output surcharge; the official rate is a video-generation rate, not a separate TTS charge.",
+      "native_audio_pricing_certainty": "The pricing table lists no generated-audio surcharge. No priced audio on/off API toggle is declared; do not invent one.",
+      "retry_cost": "Each additional successfully billed generation adds usage; this research has incurred no API charge.",
+      "higgsfield_credits_equivalence": null,
+      "source_url": "https://platform.minimax.io/docs/pricing/overview"
+    },
+    "free_trial": {
+      "guaranteed_h3_trial_credit_amount": null,
+      "finding": "No guaranteed universal free H3 API trial amount was confirmed from the reviewed public pricing, FAQ, and service agreement. Official Developer Programme advertises API credits but gives no fixed amount or automatic eligibility on its public contact page. Do not assume an unfunded new account can generate.",
+      "source_urls": ["https://platform.minimax.io/contact-us", "https://platform.minimax.io/protocol/paid-agreement", "https://platform.minimax.io/docs/faq/about-account", "https://platform.minimax.io/docs/faq/about-apis"]
+    },
+    "source_urls": ["https://www.minimax.io/blog/minimax-h3", "https://huggingface.co/MiniMaxAI/MiniMax-H3", "https://platform.minimax.io/docs/api-reference/video-generation-v2-create"]
+  },
+  "local_h3": {
+    "model_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "open_release": "H3-Base FL2VA and Ref2VA, 768p video with synchronized stereo audio. Context-IR and Regenerate-2K are not included in the open release.",
+    "license": {
+      "name": "MiniMax H3 Community License Agreement",
+      "excluded_territories": ["European Union", "United Kingdom", "Republic of Korea", "United States of America"],
+      "separate_authorization": "LICENSE I.5 and II restrict the public grant to the applicable territory and direct excluded-territory deployers to contact MiniMax for a license.",
+      "commercial_threshold": "Section IV imposes an additional commercial license condition for more than USD 20 million annual revenue; applicability must be assessed from the exact current text.",
+      "request_form": "https://platform.minimax.io/h3-license",
+      "source_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+      "hosted_api_caveat": "Do not automatically treat this public self-hosting grant as the complete contract for a separately provided official API or the previous Higgsfield service. Account/service terms and entitlements require separate confirmation."
+    },
+    "hardware": {
+      "user_machine_reported_by_parent": "RTX 4080 16 GB, RAM 64 GB, Windows 11; WSL startup currently fails.",
+      "lowest_consumer_example_in_minimax_guide": "Single RTX 4090 24 GB with layerwise CPU offload and kitchen_int8; about 18 GB GPU peak.",
+      "hardware_example_qualification": "MiniMax labels consumer GPU recipes as evolving upstream configurations, not MiniMax-verified hardware until it publishes a test matrix. 18 GB is a published configuration result, not a universal theoretical minimum.",
+      "two_gpu_vllm_offload_host_ram": "At least 200 GiB available RAM, 384 GiB recommended, for that specific recipe.",
+      "checkpoint_partition_storage_gib_vllm_guide": 135,
+      "sixteen_gb_feasibility": "No supported successful RTX 4080 16 GB + 64 GB RAM recipe was verified in the reviewed official guide. This does not establish that every possible quantized/offload implementation is impossible.",
+      "source_url": "https://platform.minimax.io/docs/guides/local-deploy-h3"
+    },
+    "download_or_execution_performed": false,
+    "next_gate": "Confirm separate Korean-use authorization before executing these public weights; then validate an appropriate hardware/runtime recipe. No large checkpoint download is justified by the currently verified evidence."
+  },
+  "uncertainties": [
+    "Natural acting, exact 바닐라코 pronunciation, and dialogue/lip sync quality require an actual generated video review.",
+    "Direct API generation latency has not been measured; public hardware timings are not an API latency estimate.",
+    "No API key, balance, trial eligibility, Korean self-hosting authorization, or model entitlement was obtained or tested by this researcher.",
+    "The current official local guide does not establish a working Windows RTX 4080 16 GB recipe."
+  ]
+}

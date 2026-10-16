@@ -1,0 +1,32 @@
+{
+ "_comment": "1단계 출력 형식. 값은 Shopee POC의 프라임 프라이머 클래식(Product Spec v6, 2026-10-12 조회)에서 가져온 예시입니다. 모든 사실에 source를 붙이고, 문서에 없는 칸은 null + missing 목록에 적습니다.",
+ "project": "AI쇼핑라이브_Shopee_202611",
+ "fetched_at": "2026-10-12",
+ "sources_available": {"product_spec_mcp": true, "nas_mcp": true, "official_mall": true},
+ "products": [
+  {
+   "key": "primer_classic",
+   "name_ko": "프라임 프라이머 클래식",
+   "name_en": "Prime Primer Classic",
+   "brand": "BANILA CO",
+   "nas_prdt_cd": null,
+   "spec": {"source": "Product Spec", "doc_version": "v6"},
+   "size": "30ml",
+   "form": "에어리스 펌프 크림 프라이머",
+   "category": "베이스 메이크업",
+   "one_liner": "바르기 전과 후, 차이는 분명하다",
+   "usps": [
+    {"text": "모공을 채우듯 피부결이 매끈해 보이고 파운데이션이 깔끔하게 올라감", "source": "Product Spec v6", "claim_level": "RA",
+     "spoken_ok": "The skin texture looks smoother, and pores look less visible.", "do_not_say": ["모공 면적 개선 수치", "임상 결과"]},
+    {"text": "완두콩 크기 소량으로 충분", "source": "Product Spec v6 (VOC)", "claim_level": "cosmetic",
+     "spoken_ok": "Just one pea-sized drop is enough."}
+   ],
+   "how_to": ["기초 다음 완두콩 크기", "모공을 채우듯 눌러 바름", "잠시 뒤 쿠션·파운데이션"],
+   "pain_points": ["양이 많으면 화장이 밀림", "여름에 답답하다는 의견"],
+   "demo_points": ["손등·손가락에 발라 비포·애프터 (원본 영상만)"],
+   "cautions": ["논코메도제닉 근거 미확인 → 말하지 않음", "US·JP 예시 카피(60초·No.1) 근거 없음 → 쓰지 않음"],
+   "missing": ["영문 컬러/옵션명 없음 (해당 없음)"]
+  }
+ ],
+ "promo": {"_comment": "intake.json에서 복사. 실무진 회신값만", "headline": "50% OFF + Free gift", "gift": null, "period": null, "countries": ["SG", "MY", "PH"]}
+}

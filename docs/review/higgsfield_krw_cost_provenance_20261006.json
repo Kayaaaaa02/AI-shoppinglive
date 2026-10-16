@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-10-06",
+  "scope": "Official-source price/FX/provenance research. No purchase, account change, generation, installation or job timing inspection.",
+  "conversion": {
+    "display_label_ko": "Higgsfield 공식 표준 크레딧 환산 기준의 원화 추정",
+    "credits_per_reference_usd": 20,
+    "reference_usd_per_credit": 0.05,
+    "reference_basis_source": "hf_mcp",
+    "topup_pack_price_basis_verified": false,
+    "actual_account_purchase_price_verified": false,
+    "fx": {
+      "pair": "USD/KRW",
+      "krw_per_usd": 1345.75,
+      "observation_date": "2026-10-02",
+      "release_date": "2026-10-05",
+      "retrieved_date": "2026-10-06",
+      "sources": [
+        "fed_h10",
+        "fred_dexkous"
+      ],
+      "rate_type": "Federal Reserve H.10 New York noon buying rate; reference estimate, not card settlement rate."
+    },
+    "krw_per_credit_unrounded": 67.2875,
+    "formula": "credits * reference_usd_per_credit * krw_per_usd",
+    "round": "Sum at full precision; round only the final displayed KRW value to nearest whole won (positive half rounds up).",
+    "excluded": [
+      "tax/VAT",
+      "card FX spread and international transaction fees",
+      "account-specific discounts",
+      "actual historical paid credit acquisition cost",
+      "unused subscription credits",
+      "other platform/orchestrator charges"
+    ]
+  },
+  "credit_prices": {
+    "public_standard_reference": {
+      "credits": 20,
+      "usd": 1,
+      "basis": "MCP standard equivalent, not verified top-up checkout offer",
+      "source": "hf_mcp"
+    },
+    "fixed_topup_packs": [
+      {
+        "credits": 100,
+        "current_checkout_usd": null,
+        "verified": false
+      },
+      {
+        "credits": 200,
+        "current_checkout_usd": null,
+        "verified": false
+      },
+      {
+        "credits": 500,
+        "current_checkout_usd": null,
+        "verified": false
+      },
+      {
+        "credits": 1000,
+        "current_checkout_usd": null,
+        "verified": false
+      },
+      {
+        "credits": 2000,
+        "current_checkout_usd": null,
+        "verified": false
+      },
+      {
+        "credits": 4000,
+        "current_checkout_usd": null,
+        "verified": false
+      }
+    ],
+    "adjustable_topup": {
+      "min_credits": 5000,
+      "max_credits": 25000,
+      "step_credits": 1000,
+      "current_checkout_usd": null
+    },
+    "topup_valid_days": 90,
+    "topup_source": "hf_pack",
+    "unavailable_reason": "Official help center publishes quantities but says current prices/discounts are shown at checkout. Dynamic public pricing page did not expose authenticated checkout prices in this research.",
+    "starter_allocation": {
+      "monthly_usd": 15,
+      "monthly_credits": 200,
+      "effective_usd_per_credit": 0.075,
+      "effective_krw_per_credit_unrounded": 100.93124999999999,
+      "source": "hf_starter",
+      "basis": "Entire subscription fee allocated over included credits; includes bundled benefits and assumes all credits consumed. Not top-up unit price, not proof of user's plan."
+    },
+    "mcp_vs_api": {
+      "mcp": "Website account credits at standard rates; no website unlimited entitlement assumed.",
+      "api": "Separate prepaid USD API balance; direct API USD/sec prices are excluded from MCP credit conversion.",
+      "source": "hf_mcp"
+    }
+  },
+  "scenarios": [
+    {
+      "id": "studio_anchor",
+      "label_ko": "스튜디오 기준 이미지",
+      "credits": 1.5,
+      "status": "endpoint_quote_parent_reported",
+      "basis": "Parent-reported quote, exact ledger deduction not verified.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 0.075,
+      "standard_reference_krw_unrounded": 100.93125,
+      "standard_reference_krw_rounded": 101,
+      "starter_subscription_allocated_usd": 0.1125,
+      "starter_subscription_allocated_krw_rounded": 151
+    },
+    {
+      "id": "studio_seedance_30s_1080p",
+      "label_ko": "기존 Seedance 2.5 스튜디오 30초 1080p",
+      "credits": 360,
+      "status": "endpoint_quote_parent_reported",
+      "basis": "Parent-reported quote, exact ledger deduction not verified.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 18,
+      "standard_reference_krw_unrounded": 24223.5,
+      "standard_reference_krw_rounded": 24224,
+      "starter_subscription_allocated_usd": 27,
+      "starter_subscription_allocated_krw_rounded": 36335
+    },
+    {
+      "id": "studio_h3_original_15s_2k",
+      "label_ko": "기존 MiniMax H3 스튜디오 15초 2K",
+      "credits": 30,
+      "status": "endpoint_quote_parent_reported",
+      "basis": "Parent-reported quote, exact ledger deduction not verified.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 1.5,
+      "standard_reference_krw_unrounded": 2018.625,
+      "standard_reference_krw_rounded": 2019,
+      "starter_subscription_allocated_usd": 2.25,
+      "starter_subscription_allocated_krw_rounded": 3028
+    },
+    {
+      "id": "studio_h3_retry_15s_2k",
+      "label_ko": "MiniMax H3 스튜디오 재시도 15초 2K",
+      "credits": 30,
+      "status": "planned_quote_scenario_parent_reported",
+      "basis": "Planned additional run; not a completed ledger charge.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 1.5,
+      "standard_reference_krw_unrounded": 2018.625,
+      "standard_reference_krw_rounded": 2019,
+      "starter_subscription_allocated_usd": 2.25,
+      "starter_subscription_allocated_krw_rounded": 3028
+    },
+    {
+      "id": "home_anchor",
+      "label_ko": "홈쇼핑 장면 기준 이미지",
+      "credits": 1.5,
+      "status": "planned_quote_scenario_parent_reported",
+      "basis": "Planned additional anchor; not a completed ledger charge.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 0.075,
+      "standard_reference_krw_unrounded": 100.93125,
+      "standard_reference_krw_rounded": 101,
+      "starter_subscription_allocated_usd": 0.1125,
+      "starter_subscription_allocated_krw_rounded": 151
+    },
+    {
+      "id": "home_seedance_15s_1080p",
+      "label_ko": "Seedance 2.5 홈쇼핑 15초 1080p",
+      "credits": 180,
+      "status": "unconfirmed_credit_scenario_parent_reported",
+      "basis": "Parent said likely 180; must replace with endpoint quote before showing as confirmed.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 9,
+      "standard_reference_krw_unrounded": 12111.75,
+      "standard_reference_krw_rounded": 12112,
+      "starter_subscription_allocated_usd": 13.5,
+      "starter_subscription_allocated_krw_rounded": 18168
+    },
+    {
+      "id": "home_h3_15s_2k",
+      "label_ko": "MiniMax H3 홈쇼핑 15초 2K",
+      "credits": 30,
+      "status": "unconfirmed_credit_scenario_parent_reported",
+      "basis": "Parent will confirm; not a completed ledger charge.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 1.5,
+      "standard_reference_krw_unrounded": 2018.625,
+      "standard_reference_krw_rounded": 2019,
+      "starter_subscription_allocated_usd": 2.25,
+      "starter_subscription_allocated_krw_rounded": 3028
+    },
+    {
+      "id": "existing_quote_total",
+      "label_ko": "기존 3개 항목 견적 합계",
+      "credits": 391.5,
+      "status": "sum_of_parent_reported_quotes",
+      "basis": "1.5 + 360 + 30; not verified actual account spend.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 19.575,
+      "standard_reference_krw_unrounded": 26343.05625,
+      "standard_reference_krw_rounded": 26343,
+      "starter_subscription_allocated_usd": 29.3625,
+      "starter_subscription_allocated_krw_rounded": 39515
+    },
+    {
+      "id": "additional_scenario_total",
+      "label_ko": "추가 4개 항목 조건부 시나리오 합계",
+      "credits": 241.5,
+      "status": "conditional_scenario_includes_unconfirmed_quotes",
+      "basis": "30 + 1.5 + 180 + 30, contingent on two unconfirmed video quotes.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 12.075,
+      "standard_reference_krw_unrounded": 16249.93125,
+      "standard_reference_krw_rounded": 16250,
+      "starter_subscription_allocated_usd": 18.1125,
+      "starter_subscription_allocated_krw_rounded": 24375
+    },
+    {
+      "id": "combined_scenario_total",
+      "label_ko": "기존 견적과 추가 시나리오 누적",
+      "credits": 633,
+      "status": "conditional_scenario_includes_unconfirmed_quotes",
+      "basis": "391.5 + 241.5; not verified actual account spend.",
+      "actual_ledger_credits": null,
+      "actual_cash_charge_krw": null,
+      "standard_reference_usd": 31.65,
+      "standard_reference_krw_unrounded": 42592.9875,
+      "standard_reference_krw_rounded": 42593,
+      "starter_subscription_allocated_usd": 47.475,
+      "starter_subscription_allocated_krw_rounded": 63889
+    }
+  ],
+  "provenance": [
+    {
+      "model": "MiniMax H3",
+      "developer": "MiniMax",
+      "access_in_this_project": "Higgsfield hosted endpoint; parent-provided quotes only",
+      "open_weight_status": "partially_available",
+      "available_open_components": [
+        "H3-Base FL2VA",
+        "H3-Base Ref2VA"
+      ],
+      "local_base_resolution": "768p",
+      "not_in_current_open_release": [
+        "H3-Context-IR",
+        "H3-Regenerate-2K",
+        "native sparse-attention implementation"
+      ],
+      "license": "MiniMax H3 Community License Agreement",
+      "license_classification": "Custom restricted license; do not label unrestricted Apache/MIT open source.",
+      "english_dialogue_support_officially_documented": true,
+      "sources": [
+        "h3_repo",
+        "h3_weights",
+        "h3_license",
+        "h3_deploy"
+      ]
+    },
+    {
+      "model": "Seedance 2.5",
+      "developer": "ByteDance Seed",
+      "official_launch_date": "2026-07-31",
+      "access_in_this_project": "Higgsfield hosted endpoint; parent-provided quotes only",
+      "modality": "joint audio-video generation",
+      "max_single_generation_seconds": 30,
+      "open_weight_status": "not_verified",
+      "open_model_license": null,
+      "classification_note": "Official model/launch pages document service/API availability. Public downloadable weights/open-model license not confirmed; do not present local open-source use.",
+      "sources": [
+        "seedance_launch",
+        "seedance_model"
+      ]
+    }
+  ],
+  "generation_time": {
+    "actual_job_wall_seconds": null,
+    "provider_compute_seconds": null,
+    "gpu_benchmark_seconds": null,
+    "status": "not_in_this_research_scope; leader reconstructing local/job records",
+    "reporting_rule": "Report observed submit-to-completion time per job from timestamps, with queue included. Keep upload/quote time and download/edit time separate. Completed_at minus submitted_at is not pure GPU render time. Output duration (15s/30s) is not generation wait time.",
+    "source_for_generic_async_lifecycle": "hf_mcp"
+  },
+  "unavailable_information": [
+    "Current authenticated top-up pack prices/discounts",
+    "User's credit purchase history and actual KRW card settlement",
+    "Verified account ledger deductions for the reported endpoint quotes",
+    "Generation times for this project's jobs",
+    "Exact provider backend checkpoint revisions behind Higgsfield endpoint aliases",
+    "Verified Seedance 2.5 public model weights/open license"
+  ],
+  "sources": [
+    {
+      "id": "hf_mcp",
+      "url": "https://higgsfield.ai/blog/automate-ai-video-n8n-make",
+      "published_date": "2026-10-02",
+      "retrieved_date": "2026-10-06",
+      "claim": "MCP uses website account plan credits at standard rates; $1 corresponds to 20 credits. Separate API uses prepaid USD balance."
+    },
+    {
+      "id": "hf_pack",
+      "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-credit-packs-work",
+      "published_date": "2026-08-03",
+      "retrieved_date": "2026-10-06",
+      "claim": "Fixed packs: 100, 200, 500, 1000, 2000, 4000 credits. Adjustable: 5000-25000 in 1000 increments. Current prices/discounts shown at checkout; valid 90 days."
+    },
+    {
+      "id": "hf_starter",
+      "url": "https://higgsfield.ai/blog/best-affordable-ai-video-generators",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Official article reports Starter $15/month and 200 credits, equivalent to $0.075/credit by allocating the entire subscription fee to credits. Live regional checkout not verified."
+    },
+    {
+      "id": "hf_current_plans",
+      "url": "https://higgsfield.ai/blog/new-ai-influencer",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Official October-2026 article reports Starter $15/mo, Plus $49/mo ($39/mo annual), Ultra $129/mo ($99/mo annual), and standard 20 credits/$1; plans vary by region."
+    },
+    {
+      "id": "fed_h10",
+      "url": "https://www.federalreserve.gov/releases/h10/current/",
+      "published_date": "2026-10-05",
+      "retrieved_date": "2026-10-06",
+      "claim": "2026-10-02 South Korean won per US dollar: 1345.7500."
+    },
+    {
+      "id": "fred_dexkous",
+      "url": "https://fred.stlouisfed.org/series/DEXKOUS",
+      "published_date": "2026-10-05",
+      "retrieved_date": "2026-10-06",
+      "claim": "Latest observation retrieved: 2026-10-02, 1345.75 KRW/USD. Source: Federal Reserve H.10, New York noon buying rate."
+    },
+    {
+      "id": "h3_repo",
+      "url": "https://github.com/MiniMax-AI/MiniMax-H3",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "H3-Base FL2VA and Ref2VA weights available; local base generates 768p; Context-IR and Regenerate-2K are not included in current open release. English is among 11 dialogue languages."
+    },
+    {
+      "id": "h3_weights",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Official MiniMax H3 checkpoint repository."
+    },
+    {
+      "id": "h3_license",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Custom MiniMax H3 Community License includes territorial and commercial-use restrictions; not an Apache/MIT license."
+    },
+    {
+      "id": "h3_deploy",
+      "url": "https://platform.minimax.io/docs/guides/local-deploy-h3",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Official self-hosting instructions distinguish local H3-Base from hosted components of full 2K workflow."
+    },
+    {
+      "id": "seedance_launch",
+      "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "published_date": "2026-07-31",
+      "retrieved_date": "2026-10-06",
+      "claim": "ByteDance Seed developed and launched Seedance 2.5; joint audio-video generation up to 30 seconds."
+    },
+    {
+      "id": "seedance_model",
+      "url": "https://seed.bytedance.com/en/seedance2_5",
+      "published_date": null,
+      "retrieved_date": "2026-10-06",
+      "claim": "Official Seedance 2.5 model page offers API/service access; no downloadable weights or open model license were verified in this research."
+    }
+  ]
+}

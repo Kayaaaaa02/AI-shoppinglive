@@ -1,0 +1,868 @@
+[
+ {
+  "id": "COMMON_OC-1",
+  "video": "COMMON",
+  "scene": "OC-1",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트 손 흔들며 인사",
+  "gesture": "She gives a small friendly wave hello with one hand at chest height near the start, then lowers it.",
+  "text": "Hi everyone, welcome to Banila Co Live! I'm your AI host today.",
+  "words": 12
+ },
+ {
+  "id": "COMMON_OC-2",
+  "video": "COMMON",
+  "scene": "OC-2",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 기대감 표정",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Today's promotion is a really great chance — so I hope you grab your favorites this time!",
+  "words": 17
+ },
+ {
+  "id": "COMMON_OC-3",
+  "video": "COMMON",
+  "scene": "OC-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 화면 아래 가리킴",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Stay with me. I'll show you everything, step by step — and the deal is waiting below.",
+  "words": 17
+ },
+ {
+  "id": "COMMON_EC-1",
+  "video": "COMMON",
+  "scene": "EC-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 장바구니 안내 카드",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "That's it for today! Remember, this deal is a great chance — I really hope you take it home this time.",
+  "words": 21
+ },
+ {
+  "id": "COMMON_EC-2",
+  "video": "COMMON",
+  "scene": "EC-2",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "장바구니 카드 강조",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Just tap the product card below to add it to your cart.",
+  "words": 12
+ },
+ {
+  "id": "COMMON_EC-3",
+  "video": "COMMON",
+  "scene": "EC-3",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "문의 카드",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Got a question? Leave it in the chat. Thanks for watching — see you next live!",
+  "words": 16
+ },
+ {
+  "id": "V1_O-P_1",
+  "video": "V1",
+  "scene": "O-P",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 4종 진열(누끼) + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Today it's all about Prime Primer — four products that help your makeup go on smooth and stay in place on hot, humid days.",
+  "words": 24
+ },
+ {
+  "id": "V1_O-P_2",
+  "video": "V1",
+  "scene": "O-P",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 4종 진열(누끼) + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "And the whole line is fifty percent off, with a free gift!",
+  "words": 12
+ },
+ {
+  "id": "V1_P1_1",
+  "video": "V1",
+  "scene": "P1",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 공감 표정",
+  "gesture": "She tilts her head slightly with an understanding expression at the start.",
+  "text": "Be honest — does your base slide off by lunch? Do your pores look bigger when it's hot?",
+  "words": 18
+ },
+ {
+  "id": "V1_P1_2",
+  "video": "V1",
+  "scene": "P1",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 공감 표정",
+  "gesture": "She tilts her head slightly with an understanding expression at the start.",
+  "text": "Then this routine is for you.",
+  "words": 6
+ },
+ {
+  "id": "V1_P2",
+  "video": "V1",
+  "scene": "P2",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Here is the routine. Four steps, and each one has its own job. Let me show you one by one."
+ },
+ {
+  "id": "V1_P3-1_1",
+  "video": "V1",
+  "scene": "P3-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 선 베이스 누끼 확대 (50ml 흰 튜브·실버 캡)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "First, Prime Primer Sun Base.",
+  "words": 5
+ },
+ {
+  "id": "V1_P3-1_2",
+  "video": "V1",
+  "scene": "P3-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 선 베이스 누끼 확대 (50ml 흰 튜브·실버 캡)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "It is sun care and primer in one step — so on busy mornings, you can skip one layer.",
+  "words": 19
+ },
+ {
+  "id": "V1_P3-2",
+  "video": "V1",
+  "scene": "P3-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 선베이스 바르는 영상.mp4 (1080², 10.4초) 루프",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Look at the texture. It's a watery essence. It spreads like a light lotion — no white cast, no sticky feeling.",
+  "words": 21
+ },
+ {
+  "id": "V1_P3-3",
+  "video": "V1",
+  "scene": "P3-3",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 선베이스 볼 광채.mp4 (6.8초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "And it feels cool when you put it on. Perfect for hot mornings, or when your sunscreen feels too heavy.",
+  "words": 20
+ },
+ {
+  "id": "V1_P4-1_1",
+  "video": "V1",
+  "scene": "P4-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 클래식 누끼 (30ml 에어리스 펌프)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Next, the classic of the line — Prime Primer Classic.",
+  "words": 10
+ },
+ {
+  "id": "V1_P4-1_2",
+  "video": "V1",
+  "scene": "P4-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 클래식 누끼 (30ml 에어리스 펌프)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "This is a cream primer, and it is the step right before your foundation.",
+  "words": 14
+ },
+ {
+  "id": "V1_P4-2_1",
+  "video": "V1",
+  "scene": "P4-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 1_클래식 영상.mp4 (1080², 18.3초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Just one pea-sized drop. Press it in, like you're filling in your pores. See?",
+  "words": 14
+ },
+ {
+  "id": "V1_P4-2_2",
+  "video": "V1",
+  "scene": "P4-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 1_클래식 영상.mp4 (1080², 18.3초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "The skin texture looks smoother, and pores look less visible.",
+  "words": 10
+ },
+ {
+  "id": "V1_P4-3_1",
+  "video": "V1",
+  "scene": "P4-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 손가락 하나 들기",
+  "gesture": "She holds up one index finger at chest height while saying the key point.",
+  "text": "A little really goes a long way — too much can make your base slide.",
+  "words": 15
+ },
+ {
+  "id": "V1_P4-3_2",
+  "video": "V1",
+  "scene": "P4-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 손가락 하나 들기",
+  "gesture": "She holds up one index finger at chest height while saying the key point.",
+  "text": "So one drop, and your cushion goes on smooth and sits nicely.",
+  "words": 12
+ },
+ {
+  "id": "V1_P4-4",
+  "video": "V1",
+  "scene": "P4-4",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Pea-size, press, wait a moment, then your base."
+ },
+ {
+  "id": "V1_P5-1",
+  "video": "V1",
+  "scene": "P5-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 피니쉬 파우더 누끼 (12g)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Now, Prime Primer Finish Powder. It's a translucent loose powder, so it won't change the shade of your cushion.",
+  "words": 19
+ },
+ {
+  "id": "V1_P5-2_1",
+  "video": "V1",
+  "scene": "P5-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 피니쉬 파우더 영상.mp4 (19.5초) → 파우더 뜯어내기.mp4 (4.2초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Tip — tap a little onto the lid first, then pick it up with your puff.",
+  "words": 16
+ },
+ {
+  "id": "V1_P5-2_2",
+  "video": "V1",
+  "scene": "P5-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 피니쉬 파우더 영상.mp4 (19.5초) → 파우더 뜯어내기.mp4 (4.2초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Less mess, and you only use what you need.",
+  "words": 9
+ },
+ {
+  "id": "V1_P5-3",
+  "video": "V1",
+  "scene": "P5-3",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 파우더 비포.mp4 → 파우더 애프터.mp4 분할 (4.5초 + 3.9초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Before… and after. Shine looks blotted, and your skin looks soft-matte — not cakey.",
+  "words": 14
+ },
+ {
+  "id": "V1_P5-4",
+  "video": "V1",
+  "scene": "P5-4",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Use just a little. Press it on the T-zone, and you are done.",
+  "words": 13
+ },
+ {
+  "id": "V1_P6-1",
+  "video": "V1",
+  "scene": "P6-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 세팅 픽서 누끼 (100ml)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Last step — Prime Primer Setting Fixer. This is what keeps everything in place.",
+  "words": 14
+ },
+ {
+  "id": "V1_P6-2_1",
+  "video": "V1",
+  "scene": "P6-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 프라임 프라이머 세팅픽서.mp4 (4.5초) 슬로 + 세팅 픽서 지속력.mp4 (6.2초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Look at this mist — so fine, it falls evenly on your face. No big drops.",
+  "words": 16
+ },
+ {
+  "id": "V1_P6-2_2",
+  "video": "V1",
+  "scene": "P6-2",
+  "kind": "h3",
+  "type": "S",
+  "screen": "하단 D: 프라임 프라이머 세팅픽서.mp4 (4.5초) 슬로 + 세팅 픽서 지속력.mp4 (6.2초)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Hold it about twenty centimeters away and spray twice.",
+  "words": 9
+ },
+ {
+  "id": "V1_P6-3_1",
+  "video": "V1",
+  "scene": "P6-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 퍼프 드는 손짓",
+  "gesture": "She makes a small light pressing motion with her fingertips at chest height, with nothing in her hand.",
+  "text": "Another tip — spray it on your puff, then press.",
+  "words": 10
+ },
+ {
+  "id": "V1_P6-3_2",
+  "video": "V1",
+  "scene": "P6-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트, 퍼프 드는 손짓",
+  "gesture": "She makes a small light pressing motion with her fingertips at chest height, with nothing in her hand.",
+  "text": "Your makeup stays put on hot, humid days, and the finish is a soft semi-matte.",
+  "words": 15
+ },
+ {
+  "id": "V1_P6-4",
+  "video": "V1",
+  "scene": "P6-4",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "And it has a double cap, so it is easy to carry in your bag."
+ },
+ {
+  "id": "V1_P7_1",
+  "video": "V1",
+  "scene": "P7",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "FAQ 카드 2장 (피부 타입별)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Quick tips! Oily skin? Use Classic on your T-zone and set it with powder. Dry skin?",
+  "words": 16
+ },
+ {
+  "id": "V1_P7_2",
+  "video": "V1",
+  "scene": "P7",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "FAQ 카드 2장 (피부 타입별)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Use less powder, and try the fixer on your puff. You can start with one, or build the whole routine.",
+  "words": 20
+ },
+ {
+  "id": "V1_P8",
+  "video": "V1",
+  "scene": "P8",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "혜택 배너 (9장 V1 프로모션)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "One more time: the whole Prime Primer line is fifty percent off today, with a free gift.",
+  "words": 17
+ },
+ {
+  "id": "V2_O-L_1",
+  "video": "V2",
+  "scene": "O-L",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Today it's all about color — Romantic Blush Lip & Cheek.",
+  "words": 11
+ },
+ {
+  "id": "V2_O-L_2",
+  "video": "V2",
+  "scene": "O-L",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "And it's buy two, get one today, so this is the day to build your set!",
+  "words": 16
+ },
+ {
+  "id": "V2_L0",
+  "video": "V2",
+  "scene": "L0",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "\"Today's look\" 카드: 05호 립·치크 발색컷 (같은 색 톤온톤)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Here's today's look: soft rosy cheeks and lips — all with one shade, oh-five. One stick, and your whole face matches.",
+  "words": 21
+ },
+ {
+  "id": "V2_L1_1",
+  "video": "V2",
+  "scene": "L1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 12색 진열(누끼) + USP 카드 ①",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Why do people love it? Number one — it is one stick for your lips and your cheeks.",
+  "words": 18
+ },
+ {
+  "id": "V2_L1_2",
+  "video": "V2",
+  "scene": "L1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 12색 진열(누끼) + USP 카드 ①",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Fewer things in your pouch, and a matching look in seconds.",
+  "words": 11
+ },
+ {
+  "id": "V2_L2",
+  "video": "V2",
+  "scene": "L2",
+  "kind": "vo",
+  "emotion": "calm",
+  "text": "Number two — the texture. It's a cream balm that melts with your body heat. Warm it on the back of your hand first, then tap it on with a puff. That way your base stays smooth."
+ },
+ {
+  "id": "V2_L3_1",
+  "video": "V2",
+  "scene": "L3",
+  "kind": "h3",
+  "type": "S",
+  "screen": "좌 1겹 / 우 2겹 분할 (발색컷 23호 발색_드로잉.mp4·23호 발색_블렌딩.mp4 또는 받은 1회·2회 발색컷)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Number three — it is buildable. One layer looks sheer, like watercolor. Two layers — deeper color.",
+  "words": 17
+ },
+ {
+  "id": "V2_L3_2",
+  "video": "V2",
+  "scene": "L3",
+  "kind": "h3",
+  "type": "S",
+  "screen": "좌 1겹 / 우 2겹 분할 (발색컷 23호 발색_드로잉.mp4·23호 발색_블렌딩.mp4 또는 받은 1회·2회 발색컷)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "And it does not clump when you layer it.",
+  "words": 9
+ },
+ {
+  "id": "V2_L4",
+  "video": "V2",
+  "scene": "L4",
+  "kind": "vo",
+  "emotion": "calm",
+  "text": "For lips — a little lip balm first, then tap it on. Soft and natural."
+ },
+ {
+  "id": "V2_L4-2_1",
+  "video": "V2",
+  "scene": "L4-2",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "스틱 누끼 확대 (잠금 캡)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Number four — it is a stick with a lock cap.",
+  "words": 11
+ },
+ {
+  "id": "V2_L4-2_2",
+  "video": "V2",
+  "scene": "L4-2",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "스틱 누끼 확대 (잠금 캡)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "No fingers, no tools — just throw it in your bag for quick touch-ups.",
+  "words": 14
+ },
+ {
+  "id": "V2_L5_02",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-two."
+ },
+ {
+  "id": "V2_L5_04",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-four."
+ },
+ {
+  "id": "V2_L5_05",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-five."
+ },
+ {
+  "id": "V2_L5_07",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-seven."
+ },
+ {
+  "id": "V2_L5_08",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-eight."
+ },
+ {
+  "id": "V2_L5_09",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade oh-nine."
+ },
+ {
+  "id": "V2_L5_12",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade twelve."
+ },
+ {
+  "id": "V2_L5_13",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade thirteen."
+ },
+ {
+  "id": "V2_L5_14",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade fourteen."
+ },
+ {
+  "id": "V2_L5_17",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade seventeen."
+ },
+ {
+  "id": "V2_L5_18",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade eighteen."
+ },
+ {
+  "id": "V2_L5_20",
+  "video": "V2",
+  "scene": "L5",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Shade twenty."
+ },
+ {
+  "id": "V2_L6_1",
+  "video": "V2",
+  "scene": "L6",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "퍼스널컬러 트리오 카드 3장 (쿨 / 웜 / 공용)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Number five — find your trio! Cool tones, try oh-two, oh-five and oh-nine. Warm tones, twelve, seventeen and eighteen. Not sure?",
+  "words": 21
+ },
+ {
+  "id": "V2_L6_2",
+  "video": "V2",
+  "scene": "L6",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "퍼스널컬러 트리오 카드 3장 (쿨 / 웜 / 공용)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "oh-four, oh-eight and thirteen suit both.",
+  "words": 6
+ },
+ {
+  "id": "V2_L7_1",
+  "video": "V2",
+  "scene": "L7",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "상황별 추천 카드 (Office / Date / Weekend)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "For the office, try oh-seven or oh-eight — soft and natural. For a date, oh-five or thirteen.",
+  "words": 17
+ },
+ {
+  "id": "V2_L7_2",
+  "video": "V2",
+  "scene": "L7",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "상황별 추천 카드 (Office / Date / Weekend)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "For a cozy weekend look, seventeen.",
+  "words": 6
+ },
+ {
+  "id": "V2_L8_1",
+  "video": "V2",
+  "scene": "L8",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "Buy 2 Get 1 카드: 2개 담기 → 1개 무료 → 트리오 완성",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "And here is why today is the day: buy two, get one.",
+  "words": 12
+ },
+ {
+  "id": "V2_L8_2",
+  "video": "V2",
+  "scene": "L8",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "Buy 2 Get 1 카드: 2개 담기 → 1개 무료 → 트리오 완성",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "So pick your trio — one for lips, one for cheeks, and one backup for your bag!",
+  "words": 17
+ },
+ {
+  "id": "V3_O-B_1",
+  "video": "V3",
+  "scene": "O-B",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 밤 3종 진열(누끼) + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "Today it's all about Clean it Zero cleansing balm — three balms for three skin types.",
+  "words": 16
+ },
+ {
+  "id": "V3_O-B_2",
+  "video": "V3",
+  "scene": "O-B",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 밤 3종 진열(누끼) + 혜택 배너",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "And they are all fifty percent off today, with a free gift!",
+  "words": 12
+ },
+ {
+  "id": "V3_C1",
+  "video": "V3",
+  "scene": "C1",
+  "kind": "h3",
+  "type": "B→H",
+  "screen": "저녁 욕실 무드 B-roll → 호스트",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "End of a long, hot day. Sunscreen, base, maybe waterproof mascara… Now, let's melt it all off.",
+  "words": 17
+ },
+ {
+  "id": "V3_C2-1",
+  "video": "V3",
+  "scene": "C2-1",
+  "kind": "vo",
+  "emotion": "calm",
+  "text": "Scoop it with the spatula. It looks like sherbet… and the moment it touches your skin, it melts into a silky oil."
+ },
+ {
+  "id": "V3_C2-2",
+  "video": "V3",
+  "scene": "C2-2",
+  "kind": "vo",
+  "emotion": "calm",
+  "text": "Massage it over dry skin. Watch how the makeup melts away. Then add a little water — it turns milky — and rinse it off."
+ },
+ {
+  "id": "V3_C3-1",
+  "video": "V3",
+  "scene": "C3-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 오리지널 누끼 (핑크 용기) + 카드 \"ORIGINAL · All-in-one\"",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "First, Clean it Zero Original — the all-in-one. It takes off everything, from sunscreen to waterproof makeup, in one step.",
+  "words": 20
+ },
+ {
+  "id": "V3_C3-2",
+  "video": "V3",
+  "scene": "C3-2",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "성분 카드: Acerola · Jojoba seed oil",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "It is made with acerola and jojoba seed oil, and it feels soft — not tight — after you rinse.",
+  "words": 20
+ },
+ {
+  "id": "V3_C3-3",
+  "video": "V3",
+  "scene": "C3-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "If you are not sure where to start, or you wear a lot of makeup, Original is your everyday balm.",
+  "words": 20
+ },
+ {
+  "id": "V3_C4-1_1",
+  "video": "V3",
+  "scene": "C4-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 포어 클래리파잉 누끼 (그린 용기) + 카드 \"PORE CLARIFYING · Fresh finish\"",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Next, Clean it Zero Pore Clarifying.",
+  "words": 6
+ },
+ {
+  "id": "V3_C4-1_2",
+  "video": "V3",
+  "scene": "C4-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 포어 클래리파잉 누끼 (그린 용기) + 카드 \"PORE CLARIFYING · Fresh finish\"",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "This one is for oily and combination skin — it gives you a really fresh, clean finish.",
+  "words": 17
+ },
+ {
+  "id": "V3_C4-2",
+  "video": "V3",
+  "scene": "C4-2",
+  "kind": "vo",
+  "emotion": "calm",
+  "text": "It has tea tree, plus a blend of AHA, BHA, PHA and LHA — so your skin feels smooth and refreshed after cleansing."
+ },
+ {
+  "id": "V3_C4-3",
+  "video": "V3",
+  "scene": "C4-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "The balm is a natural green color from plants, with a fresh green tea scent.",
+  "words": 15
+ },
+ {
+  "id": "V3_C5-1",
+  "video": "V3",
+  "scene": "C5-1",
+  "kind": "h3",
+  "type": "H+G",
+  "screen": "호스트 + 카밍 누끼 (블루 용기) + 카드 \"CALMING · Gentle\"",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "And for sensitive-feeling skin — Clean it Zero Calming. It is a gentle, low-pH cleanser, close to your skin's natural pH.",
+  "words": 21
+ },
+ {
+  "id": "V3_C5-2",
+  "video": "V3",
+  "scene": "C5-2",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "It has a cica blend, and a calming aroma from essential oils like eucalyptus, bergamot and chamomile."
+ },
+ {
+  "id": "V3_C5-3",
+  "video": "V3",
+  "scene": "C5-3",
+  "kind": "h3",
+  "type": "H",
+  "screen": "호스트",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "The soft blue color comes from plants, too. If your skin feels sensitive, this is the one to try.",
+  "words": 19
+ },
+ {
+  "id": "V3_C6_1",
+  "video": "V3",
+  "scene": "C6",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "FAQ 카드 \"Which balm is for me?\" 3열 비교 (Original / Pore / Calming)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "So, which one is yours? Wear a lot of makeup, or want an all-rounder — Original.",
+  "words": 16
+ },
+ {
+  "id": "V3_C6_2",
+  "video": "V3",
+  "scene": "C6",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "FAQ 카드 \"Which balm is for me?\" 3열 비교 (Original / Pore / Calming)",
+  "gesture": "Near the end she points gently down toward the bottom of the frame with one index finger at chest height.",
+  "text": "Oily or combination skin — Pore Clarifying. Sensitive-feeling skin — Calming.",
+  "words": 11
+ },
+ {
+  "id": "V3_C7",
+  "video": "V3",
+  "scene": "C7",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Remember — dry hands, dry face. Massage, add a little water, then rinse with lukewarm water."
+ },
+ {
+  "id": "V3_C8",
+  "video": "V3",
+  "scene": "C8",
+  "kind": "vo",
+  "emotion": "happy",
+  "text": "Pick the size that suits you — a small one for travel, or a big one for every day."
+ },
+ {
+  "id": "V3_C9",
+  "video": "V3",
+  "scene": "C9",
+  "kind": "h3",
+  "type": "G+H",
+  "screen": "혜택 배너 (9장 V3 프로모션)",
+  "gesture": "She uses one or two small open-palm gestures below chest height.",
+  "text": "One more time: all three Clean it Zero balms are fifty percent off today, with a free gift.",
+  "words": 18
+ }
+]
